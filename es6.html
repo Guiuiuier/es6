@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- 作用域练习 -->
+<!-- <style>
+    .item{
+      background-color: red;
+    }
+</style>
+   <div class="item">1</div>
+   <div class="item">1</div>
+   <div class="item">1</div> -->
+
+
+   <!-- 2s后变换div颜色 -->
+    <style>
+        div{
+             width:200px;
+             height: 200px;
+             background-color: #bfa;
+        }
+    </style>
+    <div id="ad"></div>
+</html>
+<script>
+    // es6标准
+    // 声明变量 let a;
+    // let b, c, d;
+    // let e = 100;
+
+    // 变量不能重复声明
+    // let a = 1;
+    // let a = 1;
+    // 块级作用域、全局作用域、函数作用域、eval作用域
+    /*   if else while for 如果用let声明的话 也是块级作用域
+           {
+               let girl='周扬青'；
+
+           }
+           console.log(girl);
+    */
+    // 不存在变量提升 var 可以 let不行
+    // var song = "恋爱达人";
+    // let song = "恋爱达人";
+    // 不影响作用域链条  一样可以通过上下文查找
+    /*{
+         let school="niu";
+         function fn(){
+             console.log(school);
+         }
+         fn();
+    }*/
+
+    //块级作用域例题
+    //   let items=document.getElementsByClassName("item");
+    //     for(let i=0;i<items.length;i++){
+    //         items[i].onclick=function(){
+    //             //用this
+    //         //  this.style.background="pink";
+    //          //报错
+    //          items[i].style.background="pink";
+    //          //但此时如果换成let i 就可以了 因为 let i 块级作用域只在块内有效
+    //     }
+    // }
+    //  //
+    // //  {
+    // //    let i=0;
+    //     // 代码    
+    // //  }
+    //     //当循环完成后i变成3了
+    //     console.log(window.i);
+
+    //声明常量 一定要赋值
+    //   const SC="ddd";
+    //一般常量使用大写；常量的值一旦确定无法修改
+    //常量块级作用域
+    //   {
+    //    const DD="uzi";
+    //   }
+    //   console.log(DD); //无法找到因为是块级作用域
+    //对于数组和对象的元素修改 不算做对常量的修改 不会报错
+    // const TEAM=['uzi','msmd'];
+    // TEAM.push("dsd");
+
+    // es6允许按照一定模式从数组和对象中提取值 对变量进行赋值，这被称为解构赋值
+    //数组的结构
+    //   const F4=['sdds','dsd'];
+    //   let [xiao,liu]=F4;  //对应数组上边的每个位置
+    //   console.log(xiao);
+    //对象的结构
+    /*const zhao={
+        name:'zhao',
+        age:'333',
+        xiaopin:function(){
+            console.log("d");
+        }
+       }*/
+    //对象的保存方法
+    //   let  {name,age,xiaopin}=zhao;
+    //   console.log(name);
+    // zhao.xiaopin() //如果一直调用很麻烦 一直写zhao
+    //改进 这样就不用写zhao.xiaopin了  
+    // let {xiaopin}=zhao;
+    //   xiaopin();
+
+
+    //es6中模板字符串
+    //声明 
+    //  let str="wwosss";
+    //  console.log(str,typeof str); //string
+    // 内容中可以直接出现换行符
+    //   let str='<ul><li>肾疼</li><ul>';  //如果没换行缩进很难受 此处是不能换行的 以前需要引号和加号连接才可以，
+    // let str=  `<ul>s
+    // <li>肾疼</li><ul>`  ; //  英文状态下的tab 反引号可以换行
+    //  console.log(str)
+
+    //变量拼接
+    //  let lovse=`sdsd`;
+    //  let dd=`sd`;
+    //   let out =`${lovse}sdsd`;  //变量拼接固定写法
+    //   console.log(out);
+
+
+    //es允许在大括号里面直接写入变量和函数，作为对象的属性和方法
+    //   let name='ddd';
+    //    let change=function(){
+    //        console.log("sdsd");
+    //    } 
+    //  const SCHOOL={
+    //       name,
+    //       change,
+    //improve(){
+    //  console.log(ddd);
+    //}  这个函数节省了:
+    //   }
+    //   console.log(SCHOOL);
+
+
+    //箭头函数
+ //声明一个函数
+//    let fn=function(){
+ //原本写法
+//    }
+//    let fn=(a,b)=>{
+//   return a+b;
+//    }
+//    let result=fn(1,2);
+//    console.log(result);
+    //  箭头函数 this是静态的 始终指向函数声明所在作用域下的this值
+    // 不指向const
+// function getName(){
+//     console.log(this.name);
+// }
+// let  getName2=()=>{
+//     console.log(this.name);
+// }
+// window.name="dsds去问他dsf";
+//  const school={
+//      name:"dsdfffsds",
+//  }
+//  getName();
+//  getName2();
+
+
+//call方法调用
+//   getName.call(school) //指向全局对象 
+//    getName2.call(school); //指向块级作用域。
+     // 不能作为构造函数实例化对象
+    //  let Person=(name,age)=>{
+        //   this.name=name;
+        //   this.age=age;
+
+    //  }
+    //  let me = new Person('xiao',30); //箭头函数不能作为实例化独享
+    //   console.log(me);
+    //箭头函数不能使用arguments变量
+    // let fn=()=>{
+        // console.log(arguments);
+    // }
+    // fn(1,23,3);
+
+    //箭头函数的简写
+    //省略小括号， 当形参有且只有一个的时候 （）
+    // let add=n=>{
+        // return n+n;
+    // };
+    // console.log(add(9));
+    //省略花括号，当代码题只有一条语句的时候 此时return必须省略
+    // let pow=n=> n*n; 
+    // console.log(9);
+
+
+
+
+//需求 点击div 2s后变成粉色
+//  let ad=document.getElementById('ad');
+//  ad.addEventListener("click",function(){
+    //   setTimeout(()=>{ //es6函数方式 箭头函数this是静态的指向声明时所在作用域下this的值 ad下this的值
+           //或者在外部保存this的值
+            // let _this=this; //此时这样是保存this的值
+        // console.log(this); 报错 this指向window
+        //   _this.style.background="pink"; //报错指向window let应该局部
+    //   },2000)
+//  })
+
+
+//声明一个数组 返回偶数的元素
+//   let ad=document.getElementById("ad");
+    //    const arr=[1,3,36,53,4,5];
+//        const result=arr.filter(function(item){
+//            if(item%2===0){
+//                return true;
+//            }else{
+//                return false
+//            }
+//        });
+//   console.log(result);
+ //语法2适合于this无关的回调 定时器，数组的方法返回
+ //不适合不代表不能 this有关的回调 例如事件回调，对象的方法 ，this没有自己的对象要引用外层函数的对象
+//  const result=arr.filter(item=>item%2===0);
+//  console.log(result);
+ //对象的方法报错
+//  {
+    //  name:'sh',
+    //  getName()=>{
+        //  this.name;
+    //  }
+//  }
+
+ //es6允许给函数参数赋值初始值
+    //形参初始值，具有默认值的参数，一般位置要靠后。
+
+//  function add(a,b,c){
+    //   return a+b+c;
+//   }
+//   let result=add(1,2,3); //如果有一个值没传递是undifined最后一个数
+//   console.log(result);
+//   2、 与解构赋值集合
+// function connect(){         //connect({host="1234",username,password,port})这样写
+    //  let host=options.host;
+    //  let username=options.username  //此时会发现options写重复了可以这样写
+      
+      //此时改进后可以直接 console.log(host);
+// }
+// connect({
+     //如果在形参中串了默认值则默认值  如果没有默认值 在coneect中有赋值 使用下边的
+    // host:'sdsd',
+    // username:'dsdsdsdsdfff',
+    // password:'dddffggc',
+// })
+
+//    es6引入rest参数，用于获取函数的实参，用来代替arguments
+ //  es5获取实参的方式
+//  function date(){
+    //  console.log(arguments);
+//  }
+//  date("dd","ddd","dddd"); //对象arguments  
+    //rest 参数
+    //  function date(...args){ //...args是默认写法
+    //      console.log(args);
+         
+    //  }
+    //  date('dd',"ffff"); //数组
+    //   rest参数必须要放到参数的最后
+    // function fn(a,b,...args){
+        // console.log(a);
+        // console.log(b);
+        // console.log(args);
+    // }
+    // fn(1,2,3,4,5,6);  //3456给了args  如果args写成 a,...args,b会报错 因为args代表了前边的全部 b就没了
+ //...拓展运算符能将数组转换为逗号分割的参数序列
+   //声明一个数组
+    // const tfboys=['sdsdsd','sdsdsdffffff','ddsa']; // 转换成这样子 =>'sdsdsd','sdsdsdfffff' ...
+   //声明一个函数 
+//    function chuwan(){
+        // console.log(arguments);
+//    }
+//    chuwan(tfboys); // 此时就一个数组
+//    chuwan(...tfboys); //此时就三个数组 相当于 chuwan("sdsdsd",'sdsdsdfff','ddsa')
+  
+
+    //  数组的合并 
+    //  const kuaizi=['wangtai','xiaod'];
+    //  const fengh=['dd','lhua'];
+    //  const zuixuan= kuaizi.concat(zuixuan); //数组的合并 es5的方法 但是下边提供了新的方法
+    //  console.log(zuixuan);
+    //  const zuixuan=[...kuaizi,...fengh]; //数组的合并es6都是可以的
+    //  console.log(zuixuan);
+
+    // 2， 数组的克隆
+    // const sanzhihua=['e','g','m'];
+    // const san=[...sanzhihua];
+    // console.log(san); //数组克隆 将san 克隆到 sanzhihua
+
+    //3.将伪数组转换为真正的数组;
+    //  const divs=document.querySelectorAll('div');
+    // 没用...拓展之前只有有很多其他属性
+    //  const divArr=[...divs]; //转化后只剩数组
+    //  console.log(divArr); //arguments 也可以转换
+  
+
+   //symbol 基本使用 第七种数据类型 ， string，bool,number NAN, null，undefined symbol
+         //创建symbol
+//  let s=Symbol();//此时返回一个symbol的值
+//   let s2=Symbol('ddd');
+//   let s3=Symbol("ddd");  
+//  console.log(s,typeof s);
+//  console.log(s2);    //此时会显示一个symbol的返回值  symbol(ddd);
+//  console.log(s2===s3);  //此时是不一样的因为只是名字一样 底层的内存值不同     
+
+</script>

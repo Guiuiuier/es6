@@ -815,9 +815,118 @@
     //    xiami.play();
 
 
+     //get和set  //获取和赋值 
+       
+//      class phone{
+//           get price(){
+//                console.log("sjdsd");
+//                return 'i love '
+//           }
+//           set price(newvalue){
+//  console.log("dsajdjsadsa");
+//           }
+//      }
+//      let s=new phone();
+//      console.log(s.price);
+//       //赋值 修改
+//       s.price='free'; //    newvalue赋值
 
 
 
 
+ //es6数值拓展    number.epsilon 是javascript最小精度
+//    EPSILON的属性值接近2.22045454E-
+// console.log(0.1+0.2===0.3);
+//  function equl(a,b){
+//      if(Math.abs(a-b)<Number.EPSILON){
+//          return true;
+//      }else{
+//          false;
+//      }
+//  }
+//    console.log(equl(0.1+0.2,0.3))
+
+  //二进制和八进制
+//    let b=0b1010;
+//    console.log(b);
+// let o =0o777;
+// console.log(o);
+   
+//    Number.isFinite //检测是不是有限数
+ // isNAN 检测是不是nan
+//  number isInteger
+ // number.parseint 字符串转换整数
+//  math.trunc 将数字的小数部分抹掉
+// math.sign 判断是正数还是负数还是零  负数为-1 整数为1 零是0;
+//   let a=-123;
+//   console.log(Math.sign(a));
+//  object.is判断两个值是不是完全相等。
+// object.assign对象的合并
+//  const conf={
+//      host: 'sdsd',
+//      port :'dsd'
+//  }
+//   const dd={
+//       host: 'http',
+//       port: 'aa',
+//       dd:'as'
+//   }
+// console.log(Object.assign(conf,dd)) //后边会把前边相同属性覆盖
+// object.setprototypeof 设置原型对象  
+//object.getprototypeof  //获取原型对象
+//  const school={
+//      name:' ssdd'
+//  }
+//  const citu={
+//      xiq:['dd','sdds']
+//  }
+//   Object.setPrototypeOf(school,citu);
+//   console.log(Object.getPrototypeOf(school));
+//   console.log(school);
+
+
+   //es5 模块化  
+    //防止命名冲突
+     // 代码复用
+      // 高维护性
+
+       //主要包括 export导出 import 导入
+       //原来是通过 src引入
+        //现在 
+    
+</script> 
+ 
+<script type="module">
+  // 通用模块化
+    // import * as m1 from "./mokuai.js";
+//  console.log(m1);
+    //暴露  引入
+    // import * as m2 from"./mokuai.js";
+    // console.log(m2);
+    //默认暴露
+    // import * as m3 from"./mokuai.js";
+    // console.log(m3); 
+    //调用change方法
+    //  m3.default.change();
+
+
+
+     //解构赋值形式 分别暴露
+    //   import {school,teac} from "./mokuai.js";
+    //   import {school as gui,fidn} from "./mokuai.js"; //school重名  as加别名
+    //   console.log(gui,fidn);
+    //   console.log(teac);
+
+     //对defalut做别名设置
+    //   import {default as m4} from "./mokuai.js"
+    //   console.log(m4);
+      //简便方法  只针对默认暴露
+    //    import m3 from "./mokuai.js";
+    //    console.log(m3); 
+
+    //  babel 是一个js编译器
 
 </script>
+ <!-- <script src="mokuai1.js" type="module">
+           //引入  别的js引入
+ </script> -->

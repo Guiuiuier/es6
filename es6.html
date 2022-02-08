@@ -623,4 +623,201 @@
     // }).then(value=>{
     //     console.log(value.join('\r\n')) //拼接 \R\N
     // })
+     
+      //promise
+
+        // const p=new Promise((resolve,reject)=>{
+        //     setTimeout(()=>{
+        //         reject("err");
+        //     },1000)
+        // });
+        // p.then(function(value){},function(reason){console.log(reason)})
+        //  //报错
+        // p.catch(function(reason){
+        //     console.warn(reason);
+        // })
+
+
+        //es6中提供了 新的数据结构 set(集合)
+        //   属性 ：size返回集合的元素个数
+        //  add 增加一个新元素 返回当前集合
+        // delete 删除元素 返回boolean值
+        // has 检测集合中是否包含某个元素，返回bool值
+
+              //声明一个set
+            //    let s=new Set();
+            //    let s2=new Set(['d','f']);
+            //    s2.add('fff');
+            //    console.log(s2);
+            
+            //数组去重  
+            //  let arr=[1,2,3,4,5,6,1,2,3,89];
+            // let result=[...new Set(arr)];
+            // console.log(result);
+            //交集 
+            // let arr2=[4,5,6,12,2,3,1];
+            // let result=[...new Set(arr)].filter(item=>{
+            //     let s2=new Set(arr2); //4,5,6
+            //     if(s2.has(item)){
+            //         return true;
+            //     }else{
+            //         return false;
+            //     }
+            // })
+            // console.log(result);
+             //可这样写 let  result=[...new Set(arr)].filter(item=>new Set(arr2).has(item));
+
+
+ //并集
+//    let union =[...new Set([...arr,...arr2])];
+//    console.log(union);
+//差集
+//    let diff=[...new Set(arr)].filter(item=>!(new Set(arr2).has(item)));
+//    console.log(diff);
+  //MAP
+   // map数据结构 它类似与对象 也是键值对的集合 但是键的范围不限于字符串， 各种类型的值包括对象 都可以作为键 map也实现了iterator接口  所以可以使用拓展运算符和for of 锦星便利
+// size 返回map元素个数
+// set 增加一个新元素 返回当前map
+// get 返回键值对名对象的键值
+// has 检测map中是否包含某个元素 返回boolean值
+// clear 清空集合 返回undefined
+                        // 声明
+                //     let m=new Map()
+                //   m.set("d");
+                //   m.set('change',function(){
+                //       console.log('fff');
+                //   });
+                //   let key='sdsd';
+                //   m.set(key,['beijing','df']);
+                //   console.log(m);
+
+
+ //class类
+//   function phone(brand,price){
+//        this.brand=brand;
+//        this.price=price;
+//   }
+//    //添加方法
+//   phone.prototype.call=function(){
+//       console.log('dsds');
+//   }
+
+//    //实例化对象
+//   let huawei=new phone('dd',433);
+//   huawei.call();
+//   console.log(huawei); 
+  //手写一个class类 
+//   class phone{
+//       //构造方法 名字不能修改 必须叫这个
+//        constructor(brand,price){ //里面其实是个执行器
+//         this.brand=brand;
+//         this.price=price;
+//        }
+//        //必须使用该语法不能使用 es5对象的完整形式
+//           //call:function(){}
+//        call(){
+//       console.log('dddddddff');
+//        }
+//   }
+//   let onePlus=new phone("1+",999);
+//   onePlus.call();
+//   console.log(onePlus);
+ 
+
+ //类的静态成员
+//   function Phone(){
+
+//   }
+//   Phone.name='手机';
+//   Phone.change=function(){
+//   console.log('dd');
+//   }
+//   Phone.prototype.size='5.5';
+//   //实例化对象
+//   let nd=new Phone();
+//   console.log(nd.name);
+//   console.log(nd.size);
+//   nd.change(); //实例对象是实例对象 和函数对象不同 但是和原型对象是相通的 所以无法调用
+
+
+  //静态属性 static 通过 类名.方法 访问
+//  class Phone{
+//       static name='手机';
+//       static change(){
+//           console.log('ddd');
+//       }
+//  }
+//  let onf=new Phone();
+//  console.log(on.name);
+//  console.log(Phone.name);
+
+ //构造函数继承
+//    function phone(brand,price){
+//         this.brand=brand;
+//         this.price=price;
+//    }
+//     phone.prototype.call=function(){
+//         console.log("dsd");
+//     }
+//     function smartphone(brand,price,color,size){
+//         phone.call(this,brand,price);
+//         this.color=color;
+//         this.size=size;
+//     }
+//      //设置子级构造函数的原型
+//       smartphone.prototype=new phone;
+//       smartphone.prototype.constructor=smartphone; //加不加没影响
+//         //声明子类的方法
+//          smartphone.prototype.photo=function(){
+//              console.log("wdddff");
+//          }
+//          smartphone.prototype.play=function(){
+//              console.log("play");
+//          }
+//          const chuizi=new smartphone("chuizi",'2499','5.5inch');
+//          console.log(chuizi); 
+   
+     //类继承
+    //   class phone{
+    //        //构造方法
+    //       constructor(brand,price){
+    //           this.brand=brand;
+    //           this.price=price;
+    //       }
+    //        //父类成员属性
+    //        call(){
+    //            console.log("我可以")
+    //        }
+    //   }
+
+    //    class smartphone extends phone{
+    //        //构造方法
+    //         constructor(brand,price,color,size){
+    //              super(brand,price); //phone.call(this.brand,price)
+    //             this.color=color;
+    //             this.size=size;
+    //             }
+    //              photo(){
+    //                  console.log("sadasasd");
+    //              }
+    //              play(){
+    //                  console.log("wan");
+    //              }
+    //                call(){
+    //                    console.log("asjdajdjasd"); //子类是不能调用父类的同名方法的
+    //                }
+    //    }
+    //     //实例化
+    //       const xiami=new smartphone("xiaomi",799,"heise","4.7inch");
+    //       console.log(xiami); //brand / price/ color /size
+    //    xiami.call(); //三个方法都没问题  子类无法直接调用父类的同名call方法
+    //    xiami.photo();
+    //    xiami.play();
+
+
+
+
+
+
+
 </script>
